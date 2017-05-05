@@ -11,10 +11,6 @@ public class PlayingCard extends Card{
         this.value = value;
     }
     
-    public int hiddenValue(){
-        return suit * 100 + value;
-    }
-    
     public int getValue(){
         return value;
     }

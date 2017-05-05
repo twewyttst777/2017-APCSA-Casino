@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=
+comment0.target=PlayingCardDeck()
+comment0.text=private\ String\ alreadyDrawn;\r\n\ \ \ \ public\ PlayingCardDeck(){\r\n\ \ \ \ \ \ \ \ alreadyDrawn\ \=\ "";\r\n\ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ public\ PlayingCard\ draw(){\r\n\ \ \ \ \ \ \ \ if(alreadyDrawn.length()\ >\=\ 4){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ null;\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ while(true){\r\n\ \ \ \ \ \ \ \ \ \ \ \ PlayingCard\ newCard\ \=\ new\ PlayingCard();\r\n\ \ \ \ \ \ \ \ \ \ \ \ if(alreadyDrawn.indexOf(newCard.hiddenValue())\ \!\=\ -1){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ alreadyDrawn\ \=\ alreadyDrawn\ +\ newCard.hiddenValue()\ +\ "\ ";\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ newCard;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ public\ void\ clearGame(Hand...\ players){\r\n\ \ \ \ \ \ \ \ for(Hand\ toBeCleared\ \:\ players){\r\n\ \ \ \ \ \ \ \ \ \ \ \ toBeCleared.clearHand();\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ }\r\n\ \ \ \ //I\ still\ want\ to\ make\ this\ part\ work\ lol\r\n
+comment1.params=
+comment1.target=PlayingCard\ draw()
+numComments=2

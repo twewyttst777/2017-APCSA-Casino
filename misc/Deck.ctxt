@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Card\ draw()
+comment1.params=toBeReset
+comment1.target=void\ reset(Game)
+numComments=2

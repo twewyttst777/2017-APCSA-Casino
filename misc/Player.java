@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 public class Player{
     private String name;
-    private int cash;
+    private double cash;
     private ArrayList<Card> contents;
-    public Player(String name, int cash){
+    public Player(String name, double cash){
         this.name = name;
         this.cash = cash;
     }
@@ -17,11 +17,11 @@ public class Player{
         return name;
     }
     
-    public int countMoney(){
+    public double countMoney(){
         return cash;
     }
     
-    public void addMoney(int moneyAdded){
+    public void addMoney(double moneyAdded){
         cash += moneyAdded;
     }
     

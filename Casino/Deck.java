@@ -41,16 +41,48 @@ public class Deck
         this.cards.remove(cardIndex);
     }
     
-    public void drawCard() //draws a card from your own deck; this is pretty much useless now isn't it?
-    {
-        addCard(getCard(0));
-        removeCard(0);
-    }
-    
     public void drawCard(Deck deck) //draws a card from the top of another deck and adds to the current deck
     {
         addCard(deck.getCard(0));
         deck.removeCard(0);
+    }
+    
+    public int deckValues() //The following values are according to blackjack game rules
+    {
+        int totalValue = 0;
+        int aces = 0;
+        for(Card card : this.cards)
+        {
+            switch(card.getValue())
+            {
+                case TWO: totalValue += 2; break;
+                case THREE: totalValue += 3; break;
+                case FOUR: totalValue += 4; break;
+                case FIVE: totalValue += 5; break;
+                case SIX: totalValue += 6; break;
+                case SEVEN: totalValue += 7; break;
+                case EIGHT: totalValue += 8; break;
+                case NINE: totalValue += 9; break;
+                case TEN: totalValue += 10; break;
+                case ACE: aces += 1; break; //aces will be counted separately, as they change values
+                case KING: totalValue += 10; break;
+                case QUEEN: totalValue += 10; break;
+                case JACK: totalValue += 10; break;
+                default: break; //If a card somehow has another value it will be ignored
+            }
+        }
+        for(int i = 0; i < aces; i++) //for every ace
+        {
+            if(totalValue > 10)
+            {
+                totalValue += 1;
+            }
+            else
+            {
+                totalValue += 11;
+            }
+        }
+        return totalValue;
     }
     
     public String toString() //prints out all of the cards within the deck

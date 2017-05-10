@@ -1,10 +1,18 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Player()
-comment1.params=money
-comment1.target=Player(double)
+comment1.params=name\ money
+comment1.target=Player(java.lang.String,\ double)
 comment2.params=
-comment2.target=double\ getMoney()
-comment3.params=money
-comment3.target=void\ setMoney(double)
-numComments=4
+comment2.target=java.lang.String\ getName()
+comment3.params=
+comment3.target=double\ getMoney()
+comment4.params=money
+comment4.target=void\ setMoney(double)
+comment5.params=money
+comment5.target=void\ addMoney(double)
+comment6.params=
+comment6.target=double\ getBet()
+comment7.params=bet
+comment7.target=void\ setBet(double)
+numComments=8

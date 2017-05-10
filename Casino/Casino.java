@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Casino
 {
     public static void main(String[] args)
@@ -10,17 +12,22 @@ public class Casino
         
         switch(playerInput)
         {
-            case "blackjack": 
-                Blackjack blackjack = new Blackjack();
+            case "help":
+                System.out.println("There is Keno and Blackjack.");
                 break;
-            case "solitaire":
-                
+            case "blackjack": 
+                Blackjack blackjack = new Blackjack(player);
+                player = blackjack.exit();
+                break;
+            case "keno":
+                Keno keno = new Keno();
+                keno.playKeno(player);
                 break;    
             case "slots":
                 
                 break;
             default:
-                System.out.println("Generic Text");
+                System.out.println("You can type \"help\" for help.");
                 break;
         }
     }

@@ -1,11 +1,11 @@
 import java.util.*;
 public class Bingo{
-    public void playBingo(Player player, int competitors){
+    public void playBingo(Player player){
         Scanner reader = new Scanner(System.in);
         System.out.println("Welcome to Bingo!");
         System.out.println("How many cards would you like to buy?");
         int cardNumber = reader.nextInt();
-        int[][][] cards = new int[cardNumber][5][5];
+        int[][][] playerCards = new int[cardNumber][5][5];
         for(int i = 0; i < cardNumber; i++){
             for(int j = 0; j < 5; j++){
                 ArrayList<Integer> nums = new ArrayList<Integer>();
@@ -14,11 +14,11 @@ public class Bingo{
                 }
                 Collections.shuffle(nums);
                 for(int r = 0; r < 5; r++){
-                    cards[i][r][j] = nums.remove(0) + (15 * j);
+                    playerCards[i][r][j] = nums.remove(0) + (15 * j);
                 }
             }
         }
-        showCards(cards);
+        showCards(playerCards);
     }
 
     public static void showCards(int[][][] cards){

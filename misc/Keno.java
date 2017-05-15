@@ -19,7 +19,17 @@ public class Keno{
         System.out.println("How many numbers do you want to pick?");
         int numbersPicked = reader.nextInt();
         System.out.println("How much money would you like to bet?");
-        int moneyBet = reader.nextInt();
+        boolean cannotAfford = true;
+        double moneyBet = 0;
+        while(cannotAfford){
+            moneyBet = reader.nextDouble();
+            if(moneyBet <= player.checkWallet()){
+                player.addMoney(-moneyBet);
+                cannotAfford = false;
+            } else {
+                System.out.println("You don't have that much money");
+            }
+        }
         System.out.println("Pick some numbers");
         ArrayList<Integer> kenoPicks = new ArrayList<Integer>();
         int å = 0;
@@ -50,7 +60,8 @@ public class Keno{
             }
         }
         System.out.println("Catches: " + catches);
-        System.out.println("You won " + payTable[catches][numbersPicked - 1] * moneyBet + " Dollars!");
-        player.addMoney(payTable[catches][numbersPicked - 1] * moneyBet);
+        double moneyEarned = payTable[catches][numbersPicked - 1] * moneyBet;
+        System.out.println("You won " + moneyEarned + " Dollars!");
+        player.addMoney(moneyEarned);
     }
 }

@@ -7,11 +7,13 @@ public class Player{
     public Player(String name, double cash){
         this.name = name;
         this.money = cash;
+        contents = new ArrayList();
     }
     
     public Player(String name){
         this.name = name;
         money = 500;
+        contents = new ArrayList();
     }
     
     public void setBet(double bet)

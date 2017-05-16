@@ -1,28 +1,28 @@
 import java.util.ArrayList;
 public class Player{
     private String name;
-    private double money;
+    private int cash;
     private ArrayList<Card> contents;
-    public Player(String name, double cash){
+    public Player(String name, int cash){
         this.name = name;
-        this.money = cash;
+        this.cash = cash;
     }
     
     public Player(String name){
         this.name = name;
-        money = 500;
+        cash = 0;
     }
     
     public String getName(){
         return name;
     }
     
-    public double checkWallet(){
-        return money;
+    public int countMoney(){
+        return cash;
     }
     
-    public void addMoney(double moneyAdded){
-        money += moneyAdded;
+    public void addMoney(int moneyAdded){
+        cash += moneyAdded;
     }
     
     public String draw(Deck currentDeck){

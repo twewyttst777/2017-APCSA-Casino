@@ -3,9 +3,9 @@ public class Blackjack extends Game
 {
     public Blackjack(Player player)
     {
-        if(player.checkWallet() < 2)
+        if(player.countMoney() < 2)
         {
-            System.out.println("You must have a minimum of $2 to play this game, you have $" + player.checkWallet());
+            System.out.println("You must have a minimum of $2 to play this game, you have $" + player.countMoney());
             System.out.println("Goodbye");
         }
         else
@@ -16,7 +16,7 @@ public class Blackjack extends Game
             //player.clearHand();
         
             System.out.println("Welcome to Blackjack!");
-            System.out.println("You have $" + player.checkWallet());
+            System.out.println("You have $" + player.countMoney());
             System.out.println("Place your bet: ");
             Scanner reader = new Scanner(System.in);
             

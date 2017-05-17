@@ -8,7 +8,7 @@ public class Casino
         Scanner reader = new Scanner(System.in);
         boolean stayInCasino = true;
         while(stayInCasino){
-            String playerInput = reader.next().toLowerCase();
+            String playerInput = reader.nextLine().toLowerCase();
             switch(playerInput)
             {
                 case "blackjack": 

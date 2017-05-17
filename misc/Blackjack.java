@@ -26,6 +26,7 @@ public class Blackjack
             setBets();
             
             playRound();
+            playRound();
         
         }
     }
@@ -78,10 +79,13 @@ public class Blackjack
         for(Player player : players)
         {
             player.draw(playingDeck);
+            System.out.println(player.showHand());
             if(player.cardsValue() > 21)
             {
-                //somethin happens
+                System.out.println(player.getName() + " has over 21, they are now out of the game.");
             }
+            
+            
         }
     }
     

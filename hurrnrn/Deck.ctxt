@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=toBeReset
+comment0.target=void\ reset(Game)
+comment1.params=card
+comment1.target=void\ addCard(PlayingCard)
+comment2.params=cardIndex
+comment2.target=Card\ getCard(int)
+comment3.params=cardIndex
+comment3.target=void\ removeCard(int)
+comment4.params=
+comment4.target=Card\ drawCard()
+comment5.params=
+comment5.target=void\ shuffle()
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7

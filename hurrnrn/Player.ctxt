@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=name\ cash
+comment0.target=Player(java.lang.String,\ double)
+comment1.params=name
+comment1.target=Player(java.lang.String)
+comment10.params=
+comment10.target=java.lang.String\ toString()
+comment2.params=
+comment2.target=java.lang.String\ getName()
+comment3.params=
+comment3.target=double\ checkWallet()
+comment4.params=moneyAdded
+comment4.target=void\ addMoney(double)
+comment5.params=currentDeck
+comment5.target=java.lang.String\ draw(Deck)
+comment6.params=index
+comment6.target=Card\ seeCard(int)
+comment7.params=index
+comment7.target=Card\ playCard(int)
+comment8.params=
+comment8.target=void\ clearHand()
+comment9.params=
+comment9.target=java.lang.String\ showHand()
+numComments=11

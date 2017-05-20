@@ -18,6 +18,10 @@ public class Keno{
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         System.out.println("How many numbers do you want to pick?");
         int numbersPicked = reader.nextInt();
+        while(numbersPicked > 10){
+            System.out.println("You can only pick up to 10");
+            numbersPicked = reader.nextInt(); //butt
+        }
         System.out.println("How much money would you like to bet?");
         boolean cannotAfford = true;
         double moneyBet = 0;

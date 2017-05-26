@@ -24,11 +24,20 @@ public class Casino
                 Keno keno = new Keno();
                 keno.playKeno(player);
                 break;
+                
+                case "roulette":
+                Roulette roulette = new Roulette();
+                roulette.play(player);
+                break;
+                
                 case "end":
                 stayInCasino = false;
                 break;
+                
                 case "check wallet":
                 System.out.println(player.checkWallet());
+                break;
+                
                 default:
                 System.out.println("I don't know what that is.");
                 break;

@@ -6,7 +6,7 @@ public class BingoNum{
         marked = false;
     }
     
-    public int getNumber(){
+    public int getValue(){
         return value;
     }
     

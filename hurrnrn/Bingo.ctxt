@@ -1,10 +1,12 @@
 #BlueJ class context
 comment0.params=player
 comment0.target=void\ playBingo(Player)
-comment1.params=winningCard\ gameMode\ drawn
-comment1.target=boolean\ checkWinCondition(BingoCard,\ java.lang.String,\ int[])
-comment2.params=card\ drawn
-comment2.target=boolean\ checkHorizontalRow(BingoCard,\ int[])
-comment3.params=card\ drawn
-comment3.target=boolean\ checkVerticalRow(BingoCard,\ int[])
-numComments=4
+comment1.params=winningCard
+comment1.target=void\ checkWinCondition(BingoCard)
+comment2.params=num
+comment2.target=boolean\ hasBeenCalled(int)
+comment3.params=card\ row
+comment3.target=boolean\ checkHorizontalRow(BingoCard,\ int)
+comment4.params=card\ col
+comment4.target=boolean\ checkVerticalRow(BingoCard,\ int)
+numComments=5

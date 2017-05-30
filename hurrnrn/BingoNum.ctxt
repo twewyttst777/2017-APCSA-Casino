@@ -2,7 +2,7 @@
 comment0.params=value
 comment0.target=BingoNum(int)
 comment1.params=
-comment1.target=int\ getNumber()
+comment1.target=int\ getValue()
 comment2.params=
 comment2.target=void\ mark()
 numComments=3

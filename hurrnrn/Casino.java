@@ -24,6 +24,10 @@ public class Casino
                 Keno keno = new Keno();
                 keno.playKeno(player);
                 break;
+                
+                case "bingo":
+                Bingo bingo = new Bingo();
+                bingo.playBingo(player);
                 case "end":
                 stayInCasino = false;
                 break;

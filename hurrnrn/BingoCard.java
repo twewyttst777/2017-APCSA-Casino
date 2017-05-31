@@ -10,40 +10,31 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.Graphics;
 public class BingoCard{
-    BingoNum[][] nums;
+    int[][] nums;
     public BingoCard(){
-        nums = new BingoNum[5][5];
-        for(int j = 0; j < 5; j++){
+        nums = new int[5][5];
+        for(int c = 0; c < 5; c++){
             ArrayList<Integer> num = new ArrayList<Integer>();
             for(int k = 1; k <= 15; k++){
-                num.add(k);
+                num.add(k + (15 * c));
             }
             Collections.shuffle(num);
             for(int r = 0; r < 5; r++){
-                if(j == 2 && r == 2){
-                    BingoNum adder = new BingoNum(0);
-                    nums[r][j] = adder;
+                if(c == 2 && r == 2){
+                    nums[r][c] = 0;
                 } else {
-                    BingoNum removed = new BingoNum(num.remove(0));
-                    nums[r][j] = removed;
+                    nums[r][c] = num.remove(0);
                 }
             }
+            num.clear();
         }
     }
 
-    public void mark(int col, int row){
-        nums[col][row].mark();
-    }
-
-    public BingoNum[][] showCard(){
+    public int[][] showCard(){
         return nums;
     }
 
-    public BingoNum getNum(int col, int row){
-        return nums[col][row];
-    }
-
     public int getNumber(int col, int row){
-        return nums[col][row].getValue();
+        return nums[col][row];
     }
 }

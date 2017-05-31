@@ -5,21 +5,21 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.event.*;
-public class CardGraphic extends JFrame{
+public class CardGraphic extends JPanel{
     BufferedImage img;
     private JPanel panel;
     private JButton bingoButton;
-    private JButton num;
+    private int[][] nums;
     public CardGraphic(BingoCard card, Bingo bingo){
-        super("Bingo Card");
-        panel = new JPanel();
+        //super("Bingo Card");
+        //panel = new JPanel();
         try {
             img = ImageIO.read(new File("bingoCard.jpg"));
         } catch (IOException e) {
             System.out.println("!canRead");
         }
         JLabel pic = new JLabel(new ImageIcon(img));
-        panel.add(pic);
+        //panel.add(pic);
         bingoButton = new JButton("BINGO!!!!!!");
         bingoButton.addActionListener(
             new ActionListener(){
@@ -28,19 +28,23 @@ public class CardGraphic extends JFrame{
                 }
             }
         );
-        BingoNum[][] numbers = card.showCard();
+        nums = card.showCard();
+        JFrame x = new JFrame();
+        x.add(bingoButton, BorderLayout.SOUTH);
+        x.add(this);
+        x.setSize(307, 437);
+        x.setResizable(false);
+        x.setVisible(true);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g){
+        super.paintComponent(g);
+        g.drawImage(img, 0, 0, null);
         for(int r = 0; r < 5; r++){
             for(int c = 0; c < 5; c++){
-                num = new JButton(Integer.toString(numbers[r][c].getValue()));
-                panel.add(num);
-                num.setLocation(6 + 57*c,38 + 65*r);
-                num.setPreferredSize(new Dimension(55,63));
+                g.drawString(Integer.toString(nums[r][c]), 30 + 57*c, 72 + 65*r);
             }
         }
-        add(panel);
-        add(bingoButton, BorderLayout.SOUTH);
-        setSize(307, 437);
-        this.setResizable(false);
-        setVisible(true);
     }
 }

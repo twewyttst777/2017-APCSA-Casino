@@ -1,16 +1,15 @@
 import java.util.*;
 public class Bingo{
-    private ArrayList<Integer> called;
+    private ArrayList<Integer> called = new ArrayList<Integer>();
     private boolean won;
     private String gameMode;
     public void playBingo(Player player){
-        ArrayList<Integer> called = new ArrayList<Integer>();
         called.add(0);
         Scanner reader = new Scanner(System.in);
         System.out.println("Welcome to Bingo!");
         boolean keepPlaying = true;
-        won = false;
         do{
+            won = false;
             System.out.println("How many cards would you like to buy?");
             int cardNumber = reader.nextInt();
             ArrayList<Integer> numbers = new ArrayList<Integer>();
@@ -47,70 +46,74 @@ public class Bingo{
                 System.out.println(numbers.remove(0));
                 try        
                 {
-                    Thread.sleep(10000);
+                    Thread.sleep(1000);
                 } 
                 catch(InterruptedException ex) 
                 {
                     Thread.currentThread().interrupt();
                 }
             }
+            
+            System.out.println("You win!");
         } while(keepPlaying);
     }
 
     public void checkWinCondition(BingoCard winningCard){
-        switch(gameMode){
+        A: switch(gameMode){
             case "four corners":
             if(hasBeenCalled(winningCard.getNumber(0,0)) && hasBeenCalled(winningCard.getNumber(0,4)) && hasBeenCalled(winningCard.getNumber(4,0)) && hasBeenCalled(winningCard.getNumber(4,4))){
                 won = true;
+                break A;
             }
             won = false;
-
+            break;
             case "blackout":
             for(int r = 0; r < 5; r++){
                 for(int c = 0; c < 5; c++){
                     if(!hasBeenCalled(winningCard.getNumber(r,c))){
                         won = false;
+                        break A;
                     }
                 }
             }
             won = true;
-
+            break;
             case "line":
             for(int i = 0; i < 5; i++){
-                if(checkHorizontalRow(winningCard, i) || checkVerticalRow(winningCard, i)){
+                if(!checkHorizontalRow(winningCard, i) || !checkVerticalRow(winningCard, i)){
                     won = false;
+                    break A;
                 }
             }
 
             for(int i = 0; i < 5; i++){
                 if(!hasBeenCalled(winningCard.getNumber(i,i))){
                     won = false;
+                    break A;
                 }
             }
 
             for(int i = 0; i > 5; i++){
                 if(!hasBeenCalled(winningCard.getNumber(i, 4 - i))){
                     won = false;
+                    break A;
                 }
             }
             won = true;
-
+            break;
+            
             case "cross":
             for(int i = 0; i < 5; i++){
-                if(!hasBeenCalled(winningCard.getNumber(i,i))){
+                if(!(hasBeenCalled(winningCard.getNumber(i,i)) && hasBeenCalled(winningCard.getNumber(4-i,i)))){
                     won = false;
-                }
-            }
-
-            for(int i = 0; i > 5; i++){
-                if(!hasBeenCalled(winningCard.getNumber(i, 4 - i))){
-                    won = false;
+                    break A;
                 }
             }
             won = true;
+            break;
         }
     }
-
+    
     public boolean hasBeenCalled(int num){        
         for(int i : called){
             if(num == i){

@@ -1,62 +1,48 @@
-import java.util.ArrayList;
-public class Player{
+public class Player
+{
     private String name;
     private double money;
-    private ArrayList<Card> contents;
-    public Player(String name, double cash){
+    private double bet;
+    
+    public Player()
+    {
+        this.name = "Dude Duderson";
+        this.money = 50.0;
+    }
+    
+    public Player(String name, double money)
+    {
         this.name = name;
-        this.money = cash;
+        this.money = money;
     }
     
-    public Player(String name){
-        this.name = name;
-        money = 500;
+    public String getName()
+    {
+        return this.name;
     }
     
-    public String getName(){
-        return name;
+    public double getMoney()
+    {
+        return this.money;
     }
     
-    public double checkWallet(){
-        return money;
+    public void setMoney(double money)
+    {
+        this.money = money;
     }
     
-    public void addMoney(double moneyAdded){
-        money += moneyAdded;
+    public void addMoney(double money)
+    {
+        this.money += money;
     }
     
-    public String draw(Deck currentDeck){
-        Card drawnCard = currentDeck.drawCard();
-        if(drawnCard == null){
-            return "The deck is empty!";
-        }
-        
-        contents.add(drawnCard);
-        return "You drew a " + drawnCard;
+    public double getBet()
+    {
+        return this.bet;
     }
     
-    public Card seeCard(int index){
-        return contents.get(index);
-    }
-    
-    public Card playCard(int index){
-        return contents.remove(index);
-    }
-    
-    public void clearHand(){
-        contents.clear();
-    }
-    
-    public String showHand(){
-        String contains = "";
-        for(Card card : contents){
-            contains = contains + card.toString() + ", ";
-        }
-        return name + "'s hand contains:\n" + contains;
-    }
-    
-    @Override
-    public String toString(){
-        return name;
+    public void setBet(double bet)
+    {
+        this.bet = bet;
     }
 }

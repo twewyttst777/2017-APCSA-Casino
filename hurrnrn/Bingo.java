@@ -1,19 +1,24 @@
 import java.util.*;
+import java.awt.Window.*;
 public class Bingo{
-    private ArrayList<Integer> called;
+    private ArrayList<Integer> called = new ArrayList<Integer>();
+    private ArrayList<CardGraphic> extra = new ArrayList<CardGraphic>();
     private boolean won;
     private String gameMode;
     public void playBingo(Player player){
-        ArrayList<Integer> called = new ArrayList<Integer>();
         called.add(0);
         Scanner reader = new Scanner(System.in);
         System.out.println("Welcome to Bingo!");
         boolean keepPlaying = true;
-        won = false;
+        
         do{
+            won = false;
             System.out.println("How many cards would you like to buy?");
             int cardNumber = reader.nextInt();
             ArrayList<Integer> numbers = new ArrayList<Integer>();
+            for(CardGraphic toBeCleared : extra){
+                toBeCleared.kill();
+            }
             for(int œ = 1; œ <= 75; œ++){
                 numbers.add(œ);
             }
@@ -39,21 +44,23 @@ public class Bingo{
             BingoCard[] playerCards = new BingoCard[cardNumber];
             for(int i = 0; i < cardNumber; i++){
                 playerCards[i] = new BingoCard();
-                new CardGraphic(playerCards[i], this);
+                extra.add(new CardGraphic(playerCards[i], this));
             }
-
+            int numsCalled = 0;
             while(!won){
                 called.add(numbers.get(0));
-                System.out.println(numbers.remove(0));
+                numsCalled++;
+                System.out.println(numbers.remove(0) + " " + numsCalled);
                 try        
                 {
-                    Thread.sleep(10000);
+                    Thread.sleep(2000);
                 } 
                 catch(InterruptedException ex) 
                 {
                     Thread.currentThread().interrupt();
                 }
             }
+            System.out.println("You win!");
         } while(keepPlaying);
     }
 
@@ -62,55 +69,57 @@ public class Bingo{
             case "four corners":
             if(hasBeenCalled(winningCard.getNumber(0,0)) && hasBeenCalled(winningCard.getNumber(0,4)) && hasBeenCalled(winningCard.getNumber(4,0)) && hasBeenCalled(winningCard.getNumber(4,4))){
                 won = true;
+                return;
             }
             won = false;
-
+            return;
             case "blackout":
             for(int r = 0; r < 5; r++){
                 for(int c = 0; c < 5; c++){
                     if(!hasBeenCalled(winningCard.getNumber(r,c))){
                         won = false;
+                        return;
                     }
                 }
             }
             won = true;
-
+            return;
             case "line":
             for(int i = 0; i < 5; i++){
-                if(checkHorizontalRow(winningCard, i) || checkVerticalRow(winningCard, i)){
+                if(!checkHorizontalRow(winningCard, i) || !checkVerticalRow(winningCard, i)){
                     won = false;
+                    return;
                 }
             }
 
             for(int i = 0; i < 5; i++){
                 if(!hasBeenCalled(winningCard.getNumber(i,i))){
                     won = false;
+                    return;
                 }
             }
 
             for(int i = 0; i > 5; i++){
                 if(!hasBeenCalled(winningCard.getNumber(i, 4 - i))){
                     won = false;
+                    return;
                 }
             }
             won = true;
-
+            return;
+            
             case "cross":
             for(int i = 0; i < 5; i++){
-                if(!hasBeenCalled(winningCard.getNumber(i,i))){
+                if(!(hasBeenCalled(winningCard.getNumber(i,i)) && hasBeenCalled(winningCard.getNumber(4-i,i)))){
                     won = false;
-                }
-            }
-
-            for(int i = 0; i > 5; i++){
-                if(!hasBeenCalled(winningCard.getNumber(i, 4 - i))){
-                    won = false;
+                    return;
                 }
             }
             won = true;
+            return;
         }
     }
-
+    
     public boolean hasBeenCalled(int num){        
         for(int i : called){
             if(num == i){

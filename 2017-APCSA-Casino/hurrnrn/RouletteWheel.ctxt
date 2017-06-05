@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=RouletteWheel()
+comment1.params=g
+comment1.target=void\ paintComponent(java.awt.Graphics)
+comment2.params=e
+comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment3.params=
+comment3.target=double\ returnAngle()
+comment4.params=
+comment4.target=void\ rollAgain()
+numComments=5

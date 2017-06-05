@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Bingo()
+comment0.text=\r\n\ Makes\ a\ bingo\ class\ so\ you\ can\ play\ bingo\r\n
+comment1.params=player
+comment1.target=void\ playBingo(Player)
+comment1.text=\r\n\ When\ you\ call\ this,\ it\ starts\ the\ bingo\ game.\ Cannot\ be\ called\ statically.\r\n
+comment2.params=winningCard
+comment2.target=void\ checkWinCondition(BingoCard)
+comment3.params=winningCard
+comment3.target=void\ checkEnemyWinCondition(BingoCard)
+comment4.params=num
+comment4.target=boolean\ hasBeenCalled(int)
+comment5.params=card\ row
+comment5.target=boolean\ checkHorizontalRow(BingoCard,\ int)
+comment6.params=card\ col
+comment6.target=boolean\ checkVerticalRow(BingoCard,\ int)
+numComments=7

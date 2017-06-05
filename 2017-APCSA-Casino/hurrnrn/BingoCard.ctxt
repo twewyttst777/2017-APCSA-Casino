@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=BingoCard()
+comment1.params=
+comment1.target=int[][]\ showCard()
+comment2.params=col\ row
+comment2.target=int\ getNumber(int,\ int)
+numComments=3

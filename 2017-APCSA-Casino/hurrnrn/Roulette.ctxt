@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=player
+comment0.target=Roulette(Player)
+comment1.params=toRoll
+comment1.target=RouletteNum\ rollWheel(RouletteWheel)
+numComments=2
